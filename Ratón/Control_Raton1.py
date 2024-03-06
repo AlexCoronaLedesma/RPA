@@ -12,4 +12,5 @@ pyautogui.dragTo(950, 950, button='left', duration=1)
 pyautogui.moveTo(1394, 60, duration=0.5)
 pyautogui.dragTo(1400, 950, duration=1)
 
-print(pyautogui.position())
+pyautogui.moveTo(815, 40, duration=0.5)
+pyautogui.doubleClick()
