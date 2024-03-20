@@ -10,7 +10,7 @@ driver.maximize_window()
 # Navegar a la página de YouTube
 driver.get("https://www.youtube.com/")
 # Esperar unos segundos para que la página se cargue completamente
-time.sleep(2)
+driver.implicitly_wait(10) # seconds
 # Encontrar y hacer clic en el botón de "Aceptar" en el mensaje de cookies (si existe)
 try:
     accept_button = driver.find_element(By.XPATH,'//*[@id="content"]/div[2]/div[6]/div[1]/ytd-button-renderer[2]/yt-button-shape')
@@ -19,7 +19,7 @@ except:
     pass
 
 # Esperar unos segundos para que la página de inicio se cargue completamente
-time.sleep(10)
+time.sleep(2)
 # Encontrar y hacer clic en la pestaña de "En directo" para ir a los vídeos destacados
 videos_tab = driver.find_element(By.XPATH,'//*[@id="guide-button"]')
 videos_tab.click()
@@ -28,7 +28,7 @@ videos_tab = driver.find_element(By.XPATH,'//*[@id="items"]/ytd-guide-entry-rend
 videos_tab.click()
 
 # Esperar unos segundos para que la página de vídeos se cargue completamente
-time.sleep(10)
+driver.implicitly_wait(10) # seconds
 # Obtener los títulos de los 5 primeros vídeos destacados
 featured_videos = driver.find_elements(By.XPATH,'//*[@id="video-title"]')[:5]
 for index, video in enumerate(featured_videos):
